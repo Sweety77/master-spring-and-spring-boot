@@ -1,0 +1,52 @@
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Person {
+    private String name;
+    private int age;
+}
+
+
+Or immutable version:
+
+@Value
+public class Person {
+    String name;
+    int age;
+}
+
+
+What Lombok does-
+Generates boilerplate at compile time
+Requires Lombok dependency + IDE plugin
+Works on any Java version (8+)
+
+When to use Lombok?
+    Best use cases
+        JPA entities (@Entity)
+        Mutable domain models
+        Legacy Java 8 projects
+        Classes needing setters
+        Inheritance-based designs
+
+Examle JPA Entity-
+ @Entity
+ @Data
+ @NoArgsConstructor
+ @AllArgsConstructor
+ public class User {
+     @Id
+     private Long id;
+     private String email;
+ }
+
+
+⚠️ Important
+    JPA + records ❌ (not officially supported / tricky)
+    Lombok works very well with JPA
+
+
+Real-world recommendation (very important)
+    Modern Java backend projects:
+        Records → DTOs, API models, Kafka messages
+        Lombok → Entities, domain models, mutable objects

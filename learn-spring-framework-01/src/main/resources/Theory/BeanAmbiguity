@@ -1,0 +1,4 @@
+If there are multiple matching beans/candidate for the requested object in the spring context.
+we can do 2 things to overcome this.
+1. make of them primary using @Primary annotation.
+2.Use @Qualifier and link the object to use the bean.
