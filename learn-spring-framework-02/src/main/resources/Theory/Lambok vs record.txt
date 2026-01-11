@@ -1,0 +1,34 @@
+Java records are a language-level feature introduced in Java 16 to reduce verbosity for immutable data carriers.
+Lombok is a compile-time code generation library that works across Java versions and supports both mutable and immutable models.
+Records are best for DTOs and value objects, while Lombok is better suited for entities and mutable domain models.
+
+Important-
+JPA + records (not officially supported / tricky)
+Lombok works very well with JPA
+
+6 > Why records are NOT a Lombok replacement
+
+Records:
+
+- Cannot be mutable
+- Cannot extend classes
+- Not suitable for JPA entities
+
+Lombok:
+
+    More flexible
+    Works everywhere
+    Adds dependency + magic code generation
+
+7. Real-world recommendation (very important)
+Modern Java backend projects:
+
+Records → DTOs, API models, Kafka messages
+
+Lombok → Entities, domain models, mutable objects
+
+Example architecture
+Controller  → Record (Request DTO)
+Service     → Lombok / normal class
+Repository  → JPA Entity (Lombok)
+Response    → Record (Response DTO)

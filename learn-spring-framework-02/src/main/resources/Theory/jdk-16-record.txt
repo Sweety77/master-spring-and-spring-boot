@@ -1,0 +1,87 @@
+introduced in JDK 16 - Eliminating verbosity while creating Java Beans.
+“Verbosity refers to the amount of boilerplate code required to define a Java Bean.
+
+Java records are immutable data classes introduced in Java 16 that reduce boilerplate by automatically generating constructors,
+accessors, and common methods like equals, hashCode, and toString
+
+Java 16 records significantly reduce verbosity by automatically generating constructors, accessors, and common methods
+    like equals, hashCode, and toString.”
+    we can have custom methods in records as well
+
+    Java Records (Java 16+)
+    Example
+    public record Person(String name, int age) {}
+
+  automatically Get -
+
+  1. private final fields
+
+  2. Constructor
+
+  3. Getters → name(), age()
+
+  4. equals(), hashCode(), toString()
+
+  Key characteristics
+
+  1. Immutable by default
+
+  2. Part of Java language
+
+  3. No external dependency
+
+  4. Very explicit intent: data carrier
+
+
+When should you use Records?
+  Best use cases
+    DTOs (API request/response objects)
+    Read-only data models
+    Value objects
+    Kafka / messaging payloads
+    REST controllers (request/response)
+    Config snapshots
+
+ public record UserResponse(Long id, String email) {}
+
+ “Records are ideal for immutable DTOs where the object represents data rather than behavior.”
+
+ Examle JPA Entity-
+ @Entity
+ @Data
+ @NoArgsConstructor
+ @AllArgsConstructor
+ public class User {
+     @Id
+     private Long id;
+     private String email;
+ }
+
+
+⚠️ Important
+    JPA + records ❌ (not officially supported / tricky)
+    Lombok works very well with JPA
+
+
+Real-world recommendation (very important)
+    Modern Java backend projects:
+        Records → DTOs, API models, Kafka messages
+        Lombok → Entities, domain models, mutable objects
+
+
+Example Architecture -
+
+Controller  → Record (Request DTO)
+Service     → Lombok / normal class
+Repository  → JPA Entity (Lombok)
+Response    → Record (Response DTO)
+
+
+
+Java records are a language-level feature introduced in Java 16 to reduce verbosity for immutable data carriers.
+Lombok is a compile-time code generation library that works across Java versions and supports both mutable and immutable models.
+Records are best for DTOs and value objects, while Lombok is better suited for entities and mutable domain models.
+
+
+
+
