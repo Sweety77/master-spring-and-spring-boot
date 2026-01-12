@@ -16,7 +16,7 @@ class YourBusinessClass{
     Dependency1 dependency1;
     Dependency2 dependency2;
 
-    @Autowired
+    /*@Autowired
     public void setDependency1(Dependency1 dependency1) {
         System.out.println("Setter run for Dependency1");
         this.dependency1 = dependency1;
@@ -25,6 +25,12 @@ class YourBusinessClass{
     @Autowired
     public void setDependency2(Dependency2 dependency2) {
         System.out.println("Setter run for Dependency2");
+        this.dependency2 = dependency2;
+    }*/
+
+    @Autowired// Optional : the @Autowire annotation is optional for construction Injection
+    public YourBusinessClass(Dependency1 dependency1, Dependency2 dependency2) {
+        this.dependency1 = dependency1;
         this.dependency2 = dependency2;
     }
 
