@@ -1,8 +1,13 @@
 package com.in28minutes.learn_spring_framework.examples.c1;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component
+/*
+Use most specific annotation possible
+ */
+//@Component
+@Repository
 public class MySQLDataService implements DataService{
     @Override
     public int[] retrieveData() {
