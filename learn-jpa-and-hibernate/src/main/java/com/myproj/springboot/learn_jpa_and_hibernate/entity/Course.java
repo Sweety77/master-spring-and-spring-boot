@@ -8,7 +8,7 @@ public class Course {
     private String name;
     private String author;
 
-    public Course(String author, int id, String name) {
+    public Course( int id, String name, String author) {
         this.author = author;
         this.id = id;
         this.name = name;
