@@ -40,4 +40,15 @@ public class Course {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "author='" + author + '\'' +
+                ", id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
+
+
 }
